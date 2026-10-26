@@ -1,0 +1,110 @@
+\documentclass{amsart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\begin{document}
+    \section*{Number Theory Assignment 1}
+    \hrulefill
+    \subsection*{Q1} 
+    By BCC Proposition 3.3.4, the congruence
+    \[ax \equiv b \mod n\]
+
+    admits solutions if and only if $d = \gcd(a, n)$ divides b, and it admits exactly $d$ non-congruent solutions modulo $n$. Since we seek a congruence with $11$ non-congruent solutions, we set $d = 11$.
+
+    Noting that the prime factorization of $319$ is $11 \cdot 29$, $\gcd(a, 319) = 11$ if $a \in \left\{11k \ \vert \ k \in \mathbb{Z} \text{ and } 29 \nmid k\right\}$. We choose $a = 11$ for ease. 
+    
+    Similarly, $11 | b$ if $b \in \left\{11j \ \vert \ j \in \mathbb{N}\right\}$, so we can choose $b = 11$.
+
+    A congruence satisfying these requirements is 
+    \[11x \equiv 11 \mod 319\]
+
+    $x_0 = 1$ is a solution to this congruence, and by Proposition 3.3.4, the set of pairwise non-congruent solutions is
+
+    \[\left\{ x_0 + h \frac{319}{11} \ \vert \ h \in \{0, 1, \dots, 10\}\right\} = \left\{1, 30, 59, 88, 117, 146, 175, 204, 233, 262, 291\right\}.\]
+    
+    \hrulefill
+
+    \subsection*{Q2}
+
+    First, we can prove that $g$ is a quadratic nonresidue mod p.
+
+    By Euler's Criterion,
+    \[\left(\frac{g}{p}\right) \equiv g^{\frac{p-1}{2}} \mod p\]
+
+    Squaring both sides and applying Fermat's little theorem gives
+    \[\left(\frac{g}{p}\right)^2 \equiv g^{p-1} \equiv 1 \pmod p\]
+    
+    Therefore, the value of the Legendre symbol is restricted to $\left(\frac{g}{p}\right) = \pm 1$.
+
+    Since $g$ is a generator of $(\mathbb{Z}/(p))^*$ its order is $(p-1)$, so $g^n \equiv 1 \mod p$ if and only if $(p-1) \mid n$.
+    
+    Since $0 < \frac{p-1}{2} < p-1$, $\frac{p-1}{2}$ is clearly not a multiple of $p - 1$, therefore
+
+    \[g^{\frac{p-1}{2}} \not\equiv 1 \mod p \implies \left(\frac{g}{p}\right) = -1.\]
+
+    By the multiplicative properties of the Legendre symbol, [BCC Proposition 5.2.22], we have that
+
+    \[\left(\frac{a}{p}\right) = \left(\frac{g^j}{p}\right) = \left(\frac{g}{p}\right)^j = (-1)^j\]
+
+    $a$ is a quadratic residue mod $p$ if and only if $\left(\frac{a}{p}\right) = \left(\frac{g^j}{p}\right) = 1$, and $(-1)^j = 1$ if and only if $j$ is an even integer. 
+    
+    Therefore, $a = g^j$ is a quadratic residue mod $p$ if and only if $j$ is even, as required. \qed
+
+    \newpage
+
+    \subsection*{Q3}
+
+    First we prove that the three summations are equivalent.
+
+    \[\sum_{i=1}^{p} \left(\frac{i}{p}\right) = \sum_{i=1}^{p-1} \left(\frac{i}{p}\right) + \left(\frac{p}{p}\right) = \sum_{i=1}^{p-1} \left(\frac{i}{p}\right) + 0\]
+
+    Similarly,
+
+    \[\sum_{i=0}^{p-1} \left(\frac{i}{p}\right) = \left(\frac{0}{p}\right) + \sum_{i=1}^{p-1} \left(\frac{i}{p}\right) = 0 + \sum_{i=1}^{p-1} \left(\frac{i}{p}\right)\]
+
+    These both follow from the fact that
+
+    \[\left(\frac{a}{p}\right) = 0 \iff a \equiv 0 \mod p.\]
+
+    We use the observation from Question 2, and that 
+
+    \[a \equiv b \mod p \implies \left(\frac{a}{p}\right) = \left(\frac{b}{p}\right)\]
+
+    Since $p$ is an (odd) prime, we can choose a generator $g \in (\mathbb{Z}/(p))^*$ such that any $a \in [1, \dots, p-1]$ is congruent to $g^j$ for some choice of $j \in [1, \dots, p-1]$. We can rewrite the final summation as follows:
+
+    \[\sum_{i=1}^{p-1} \left(\frac{i}{p}\right) = \sum_{j=1}^{p-1} \left(\frac{g^j}{p} \right).\]
+
+    Let $m = \frac{p-1}{2}$. Then, we can split the summation into the odd and even exponents of $g$.
+
+    \begin{align*}
+        \sum_{j=1}^{p-1} \left(\frac{g^j}{p}\right) &= \sum_{k=1}^{m} \left(\frac{g^{2k-1}}{p}\right) + \sum_{k=1}^{m} \left(\frac{g^{2k}}{p}\right) \\
+        &= \sum_{k=1}^{m} (-1) + \sum_{k=1}^{m} (1) \\
+        &= -m + m = 0
+    \end{align*}
+
+    Therefore, we have 
+
+    \[\sum_{i=1}^{p-1} \left(\frac{i}{p}\right) = \sum_{j=1}^{p-1} \left(\frac{g^j}{p} \right) = -m + m = 0\]
+
+    as required. \qed
+
+    \hrulefill
+
+    \subsection*{Q4} Using the method outlined in ECC Theorem 1.5.13 for calculating infinite continued simple fractions, we take
+
+    \[\alpha_1 = \sqrt{11}, \ a_1 = \lfloor \alpha_1 \rfloor = 3\]
+
+    \newpage
+    Using the recursive definition $\alpha_{n+1} = 1/(\alpha_n - a_n)$, we calculate $\alpha_2, \alpha_3, \alpha_4$ to be
+    
+    \begin{align*}
+        \alpha_2 = \frac{1}{\sqrt{11} - 3} &= \frac{\sqrt{11} + 3}{2} & \implies a_2 = 3 \\
+        \alpha_3 = \frac{1}{\frac{\sqrt{11} + 3}{2} - 3} &= \frac{2}{\sqrt{11} - 3} = \sqrt{11} + 3 & \implies a_3 = 6 \\
+        \alpha_4 = \frac{1}{\sqrt{11} + 3 - 6} &= \frac{1}{\sqrt{11} - 3} = \alpha_2 & \implies a_4 = a_2 = 3\\
+    \end{align*}
+
+    Since $\alpha_n$ only depends on $\alpha_{n - 1}$, it follows that $\alpha_n = \alpha_{n-2}$ for all $n \geq 4$.
+
+    Therefore, $[a_1 ; a_2, a_3, a_4, a_5, \dots]= [a_1 ; a_2, a_3, a_2, a_3, \dots]$, and $\sqrt{11} = [3; \overline{3, 6}]$ as required. \qed
+
+\end{document}

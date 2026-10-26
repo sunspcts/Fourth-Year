@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\begin{document}
+    \section*{Topics in Algebra - Lecture 2}
+
+    Given $N \trianglelefteq G$, what is the relationship between subgroups of $G$ and subgroups of $G / N$?
+
+    \centering
+    \begin{tikzcd}[row sep=small]
+    & G \arrow[ld] \arrow[dd, "\trianglelefteq"] \\
+    H \arrow[rd, "\trianglelefteq"] & \\
+    & N
+    \end{tikzcd}
+
+    \raggedright
+
+    We claim that $H / N < G / N$.
+
+    Proof: $\gamma_N : G \to G / N$ is defined by $\gamma_N(g) = gN$, we call this the canonical map. Using the fact that $\gamma_N$ is a homomorphism, we have that
+    \begin{equation*}
+        \gamma_N(H) < G/N \iff H / N < G / N
+    \end{equation*}
+
+    (Exercise: if $H$ is normal in $G$, prove $H/N \trianglelefteq G/N$).
+
+    Recall: if $ f : X \to Y$ is a function and $W \subseteq Y$, $f^{-1}(W) = \{x \in X \ \vert \ f(x) \in W\}$
+
+    Theorem 15.16: If $\phi: G \to G'$ is a homomorphism, and $N' > G'$ then $\phi^{-1}(N') < G$
+
+    Lemma 34.3 (fraleigh): TODO
+
+    Proof: TODO
+
+    \subsection*{Example}
+    \centering
+
+    \begin{tikzcd}
+                            & \mathbb{Z} \arrow[ld] \arrow[dd] \arrow[rd] &                         \\
+    2\mathbb{Z} \arrow[rd]  &                                             & 3\mathbb{Z} \arrow[ld] \\
+                            & 6\mathbb{Z}                                 & 
+    \end{tikzcd}
+
+    \raggedright
+\end{document}

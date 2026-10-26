@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\begin{document}
+    \begin{equation*}
+        F(n) = \begin{cases}
+            n - c & b < n \\
+            4a+n-c & b - a \leq n \leq b \\
+            F(a +F(a +F(a +F(a + n)))) &n < b - a
+        \end{cases}
+    \end{equation*}
+\end{document}

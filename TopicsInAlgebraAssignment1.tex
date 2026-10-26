@@ -1,0 +1,110 @@
+\documentclass{amsart}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\begin{document}
+    \section*{Topics in Algebra Assignment 1} 
+    id number: 2918568H
+    \hrulefill
+    \subsection*{Q1} 
+    We can use the Schreier Theorem. Let $H_0 = K_0 = \{0\}$, $H_1 = 20\mathbb{Z}$, $K_1 = 15\mathbb{Z}$ and $H_2 = K_2 = \mathbb{Z}$.
+
+    We have that
+    \begin{align*}
+        H_0 &\leq H_0 + (H_1 \cap K_1) \leq H_1 \\
+        \implies \{0\} &\leq \{0\}+ (20\mathbb{Z} \cap 15\mathbb{Z}) \leq 20\mathbb{Z} \\
+        \implies \{0\} &\leq 60\mathbb{Z} \leq 20\mathbb{Z}
+    \end{align*}
+
+    and that 
+    \begin{align*}
+        H_1 &\leq H_1 + (H_2 \cap K_1) \leq H_2 \\
+        \implies 20\mathbb{Z} &\leq 20\mathbb{Z} + (\mathbb{Z} \cap 15\mathbb{Z}) \leq \mathbb{Z} \\
+        \implies 20\mathbb{Z} &\leq 5\mathbb{Z} \leq \mathbb{Z}
+    \end{align*}
+
+    So we have the refinement
+
+    \[
+        \{0\} \leq 60\mathbb{Z} \leq 20\mathbb{Z} \leq 5\mathbb{Z} \leq \mathbb{Z}
+    \]
+
+    We repeat this process for $K$.
+
+    \begin{align*}
+        K_0 &\leq K_0 + (K_1 \cap H_1) \leq K_1 \\
+        \implies \{0\} &\leq \{0\}+ (15\mathbb{Z} \cap 20\mathbb{Z}) \leq 15\mathbb{Z} \\
+        \implies \{0\} &\leq 60\mathbb{Z} \leq 15\mathbb{Z}
+    \end{align*}
+
+    and 
+
+    \begin{align*}
+        K_1 &\leq K_1 + (K_2 \cap H_1) \leq K_2 \\
+        \implies 15\mathbb{Z} &\leq 15\mathbb{Z} + (\mathbb{Z} \cap 20\mathbb{Z}) \leq \mathbb{Z} \\
+        \implies 15\mathbb{Z} &\leq 5\mathbb{Z} \leq \mathbb{Z}.
+    \end{align*}
+
+    So we have the refinement
+
+    \[
+        \{0\} \leq 60\mathbb{Z} \leq 15\mathbb{Z} \leq 5\mathbb{Z} \leq \mathbb{Z}
+    \]
+
+    The factor groups of H are $60\mathbb{Z} / \{0\} \cong \mathbb{Z}$, $20\mathbb{Z} / 60\mathbb{Z} \cong C_3$, $5\mathbb{Z} / 20\mathbb{Z} \cong C_4$ and $\mathbb{Z} / 5\mathbb{Z} \cong C_5$.
+
+    The factor groups of K are $60\mathbb{Z} / \{0\} \cong \mathbb{Z}$, $15\mathbb{Z} / 60\mathbb{Z} \cong C_4$, $5\mathbb{Z} / 15\mathbb{Z} \cong C_3$ and $\mathbb{Z} / 5\mathbb{Z} \cong C_5$.
+
+    The two refinements are isomorphic.
+
+    \subsection*{Q2}
+
+    Note that since $\mathbb{Z}_{72}$ is finite, it has a composition series. 
+    
+    We consider the first series
+
+    \[\{0\} \leq \left\langle 18 \right\rangle \leq \left\langle 3 \right\rangle \leq \mathbb{Z}_{72}\]
+
+    which has factor groups $\left\langle 18 \right\rangle / \{0\} \cong C_{4}$, $\left\langle 3 \right\rangle / \left\langle 18 \right\rangle \cong C_{6}$ and $\mathbb{Z}_{72} / \left\langle 3 \right\rangle \cong C_{3}$.
+
+    $\mathbb{Z}_{72} / \left\langle 3 \right\rangle$ is already simple and does not need further refinement.
+    
+    We can insert $\left\langle 18 \right\rangle \leq \left\langle 9 \right\rangle \leq \left\langle 3 \right\rangle$, the factor groups are then $\left\langle 3 \right\rangle / \left\langle 9 \right\rangle \cong C_{3}$ and $\left\langle 9 \right\rangle / \left\langle 18 \right\rangle \cong C_{2}$.
+
+    We can also insert $\{0\} \leq \left\langle 36 \right\rangle \leq \left\langle 18 \right\rangle$, the factor groups are then $\left\langle 36 \right\rangle / \{0\} \cong C_2$ and $\left\langle 18 \right\rangle / \left\langle 36 \right\rangle \cong C_2$.
+
+    We have the refinement 
+    \[
+        \{0\} \leq \left\langle 36 \right\rangle \leq \left\langle 18 \right\rangle \leq \left\langle 9 \right\rangle \leq \left\langle 3 \right\rangle \leq \mathbb{Z}_{72}
+    \]
+
+    All the factor groups are simple, so this is a composition series.
+
+    Now consider the second series 
+
+    \[
+        \{0\} \leq \left\langle 24 \right\rangle \leq \left\langle 12 \right\rangle \leq \mathbb{Z}_{72}
+    \]
+
+    Using the same process as used for the first series, making sure every factor group is simple, we have the refinement
+
+    \[
+        \{0\} \leq \left\langle 24 \right\rangle \leq \left\langle 12 \right\rangle \leq \left\langle 6 \right\rangle \leq \left\langle 3 \right\rangle \leq \mathbb{Z}_{72}
+    \]
+
+    The factor groups are $\left\langle 24 \right\rangle / \{0\} \cong C_3$, $\left\langle 12 \right\rangle / \left\langle 24 \right\rangle \cong C_2$, $\left\langle 6 \right\rangle / \left\langle 12 \right\rangle \cong C_2$, \break $\left\langle 3 \right\rangle / \left\langle 6 \right\rangle \cong C_2$ and $\mathbb{Z}_{72} / \left\langle 3 \right\rangle \cong C_3$.
+
+    All simple, so this is also a composition series.
+
+    Thus, by either direct comparison of the factor groups, or by the Jordan-H{\"o}lder theorem that all composition series of a group are isomorphic, the two refinements are isomorphic.
+
+    \subsection*{Q3}
+
+    $Z(S_3)$ is the trivial subgroup, and $Z(D_4) = \{e, r^2\}$. By definition of the direct product, $Z(S_3 \times D_4) = \{z \in S_3 \times D_4 \ | \ \forall g \in S_3 \times D_4, zg = gz\}$. Since the group operation under direct product is component-wise, 
+
+    \[Z(S_3 \times D_4) = \{(a, b) \in S_3 \times D_4 \ | \ \forall (c, d) \in S_3 \times D_4, (ac, bd) = (ca, db)\}\].
+
+    This is equivalent to $Z(S_3) \times Z(D_4)$. Therefore, 
+
+    \[Z(S_3 \times D_4) = \{(e_{S_3}, e_{D_4}), (e_{S_3}, r^2)\}\].
+\end{document}
